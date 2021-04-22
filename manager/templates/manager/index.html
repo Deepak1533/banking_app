@@ -1,0 +1,25 @@
+<a href="{% url 'manager:add_user' %}" style="margin:10px">
+    <button>Add User</button>
+</a>
+<a href="{% url 'manager:add_transaction' %}" style="margin:10px"><button>Add Transaction</button></a>
+
+<table border="1" style="margin-left:10px;margin-top:40px">
+    <thead>
+        <tr>
+            <td>S.No</td>
+            <td>Account Number</td>
+            <td>User Name</td>
+            <td>Balance</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ user.account_number }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.account_balance }}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+</table>
